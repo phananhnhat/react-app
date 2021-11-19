@@ -25,12 +25,24 @@ export function Counter() {
         <button
           className={styles.button}
           aria-label="Decrement value"
+          // onClick={() => {
+          //   dispatch((dispatch1) => {
+          //     dispatch1({
+          //       type: 'giam1',
+          //       payload: {
+          //         x: 1,
+          //         y: 2,
+          //       },
+          //     })
+          //   });
+          // }}
           onClick={() => {
-            dispatch((dispatch1) => {
-              dispatch1({
-                type: 'giam1',
-                payload: 'test',
-              })
+            dispatch({
+              type: 'giam12',
+              payload: {
+                x: 12,
+                y: 22,
+              },
             });
           }}
         >
