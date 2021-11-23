@@ -38,11 +38,26 @@ export function Counter() {
           // }}
           onClick={() => {
             dispatch({
-              type: 'giam12',
+              type: 'forkTest',
               payload: {
-                x: 12,
+                x: 11,
                 y: 22,
               },
+            });
+          }}
+        >
+          -
+        </button>
+        <button
+          style={{
+            backgroundColor: 'red',
+          }}
+          class="123"
+          className={styles.button}
+          aria-label="Decrement value"
+          onClick={() => {
+            dispatch({
+              type: 'callGeneratorFnTest',
             });
           }}
         >
