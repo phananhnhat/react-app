@@ -17,6 +17,8 @@ import { createStore } from 'redux'
 import Home from './screens/Home';
 import Header from './components/Header'
 import {Counter} from "./components/Counter";
+import ListApp from "./components/ListApp";
+import AppTestRender from "./components/AppTestRender";
 
 
 function About() {
@@ -94,6 +96,12 @@ function App() {
             <li>
               <Link to="/counter">Counter</Link>
             </li>
+            <li>
+              <Link to="/app1">List App</Link>
+            </li>
+            <li>
+              <Link to="/apptest1">App test render with Pure Component</Link>
+            </li>
           </ul>
         </nav>
 
@@ -115,10 +123,28 @@ function App() {
           <Route path="/counter">
             <Counter />
           </Route>
+          <Route path="/app1">
+            <ListApp
+              items={
+                [
+                  {text: 'text2'}, {text: 'text1'}, {text: 'text3'}, {text: 'text4'}
+                ]
+              }
+              itemComponent={({item}) => {return <p>Render by ItemComponent props: {item.text}</p>}}
+            >
+              <Item />
+              {/*<p>This is children of ListApp</p>*/}
+            </ListApp>
+          </Route>
+          <Route path="/apptest1">
+            <AppTestRender />
+          </Route>
         </Switch>
       </div>
     </Router>
   );
 }
+
+const Item = ({item}) => {return <p>Render by children props: {item.text}</p>};
 
 export default App;
