@@ -19,6 +19,7 @@ import Header from './components/Header'
 import {Counter} from "./components/Counter";
 import ListApp from "./components/ListApp";
 import AppTestRender from "./components/AppTestRender";
+import Download from "./components/Download";
 
 
 function About() {
@@ -102,6 +103,9 @@ function App() {
             <li>
               <Link to="/apptest1">App test render with Pure Component</Link>
             </li>
+            <li>
+              <Link to="/download">Test Download</Link>
+            </li>
           </ul>
         </nav>
 
@@ -138,6 +142,9 @@ function App() {
           </Route>
           <Route path="/apptest1">
             <AppTestRender />
+          </Route>
+          <Route path="/download">
+            <Download />
           </Route>
         </Switch>
       </div>
