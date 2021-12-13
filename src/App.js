@@ -18,6 +18,7 @@ import Home from './screens/Home';
 import Header from './components/Header'
 import {Counter} from "./components/Counter";
 import ListApp from "./components/ListApp";
+import AppTestKey from "./components/AppTestKey";
 import AppTestRender from "./components/AppTestRender";
 import Download from "./components/Download";
 
@@ -106,6 +107,9 @@ function App() {
             <li>
               <Link to="/download">Test Download</Link>
             </li>
+            <li>
+              <Link to="/apptestkey">Test App key</Link>
+            </li>
           </ul>
         </nav>
 
@@ -145,6 +149,9 @@ function App() {
           </Route>
           <Route path="/download">
             <Download />
+          </Route>
+          <Route path="/apptestkey">
+            <AppTestKey />
           </Route>
         </Switch>
       </div>
