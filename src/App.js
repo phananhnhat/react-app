@@ -19,8 +19,12 @@ import Header from './components/Header'
 import {Counter} from "./components/Counter";
 import ListApp from "./components/ListApp";
 import AppTestKey from "./components/AppTestKey";
+import AppTestKeyFunctionComponent from "./components/AppTestKeyFunctionComponent";
 import AppTestRender from "./components/AppTestRender";
 import Download from "./components/Download";
+import AppTestRenderListSuperLong from "./components/AppTestRenderListSuperLong";
+import TestHook from "./components/TestHook";
+import PromiseTest from "./components/PromiseTest";
 
 
 function About() {
@@ -110,6 +114,18 @@ function App() {
             <li>
               <Link to="/apptestkey">Test App key</Link>
             </li>
+            <li>
+              <Link to="/apptestkeyfunctioncomponent">Test App key Function Component</Link>
+            </li>
+            <li>
+              <Link to="/apptestlistsuperlong">Test App List Super Long</Link>
+            </li>
+            <li>
+              <Link to="/testhook">Test Hook</Link>
+            </li>
+            <li>
+              <Link to="/promise">Test Promise</Link>
+            </li>
           </ul>
         </nav>
 
@@ -129,7 +145,7 @@ function App() {
             <Test />
           </Route>
           <Route path="/counter">
-            <Counter />
+            <Counter test={1} />
           </Route>
           <Route path="/app1">
             <ListApp
@@ -152,6 +168,18 @@ function App() {
           </Route>
           <Route path="/apptestkey">
             <AppTestKey />
+          </Route>
+          <Route path="/apptestkeyfunctioncomponent">
+            <AppTestKeyFunctionComponent />
+          </Route>
+          <Route path="/apptestlistsuperlong">
+            <AppTestRenderListSuperLong />
+          </Route>
+          <Route path="/testhook">
+            <TestHook />
+          </Route>
+          <Route path="/promise">
+            <PromiseTest />
           </Route>
         </Switch>
       </div>
