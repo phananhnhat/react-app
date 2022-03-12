@@ -50,7 +50,7 @@ export default function TestHook() {
       aria-label="Increment value"
       onClick={onClick1}
     >
-      +
+      -
     </button>
     <p>{x}</p>
     <p>{y}</p>

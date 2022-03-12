@@ -19,6 +19,7 @@ import Header from './components/Header'
 import {Counter} from "./components/Counter";
 import ListApp from "./components/ListApp";
 import AppTestKey from "./components/AppTestKey";
+import AppTestMount from "./components/AppTestMount";
 import AppTestKeyFunctionComponent from "./components/AppTestKeyFunctionComponent";
 import AppTestRender from "./components/AppTestRender";
 import Download from "./components/Download";
@@ -115,6 +116,9 @@ function App() {
               <Link to="/apptestkey">Test App key</Link>
             </li>
             <li>
+              <Link to="/apptestmount">Test Component Mount</Link>
+            </li>
+            <li>
               <Link to="/apptestkeyfunctioncomponent">Test App key Function Component</Link>
             </li>
             <li>
@@ -168,6 +172,9 @@ function App() {
           </Route>
           <Route path="/apptestkey">
             <AppTestKey />
+          </Route>
+          <Route path="/apptestmount">
+            <AppTestMount />
           </Route>
           <Route path="/apptestkeyfunctioncomponent">
             <AppTestKeyFunctionComponent />
