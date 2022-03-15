@@ -26,6 +26,7 @@ import Download from "./components/Download";
 import AppTestRenderListSuperLong from "./components/AppTestRenderListSuperLong";
 import TestHook from "./components/TestHook";
 import PromiseTest from "./components/PromiseTest";
+import AppSuspense from "./components/AppSuspense";
 
 
 function About() {
@@ -130,6 +131,9 @@ function App() {
             <li>
               <Link to="/promise">Test Promise</Link>
             </li>
+            <li>
+              <Link to="/suspense">App Suspense</Link>
+            </li>
           </ul>
         </nav>
 
@@ -187,6 +191,9 @@ function App() {
           </Route>
           <Route path="/promise">
             <PromiseTest />
+          </Route>
+          <Route path="/suspense">
+            <AppSuspense />
           </Route>
         </Switch>
       </div>
