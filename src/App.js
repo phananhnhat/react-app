@@ -26,7 +26,8 @@ import Download from "./components/Download";
 import AppTestRenderListSuperLong from "./components/AppTestRenderListSuperLong";
 import TestHook from "./components/TestHook";
 import PromiseTest from "./components/PromiseTest";
-import AppSuspense from "./components/AppSuspense";
+import Suspense from "./components/Suspense";
+import Loadable from "./components/Loadable";
 
 
 function About() {
@@ -134,6 +135,9 @@ function App() {
             <li>
               <Link to="/suspense">App Suspense</Link>
             </li>
+            <li>
+              <Link to="/loadable">App use Loadable Library</Link>
+            </li>
           </ul>
         </nav>
 
@@ -192,8 +196,8 @@ function App() {
           <Route path="/promise">
             <PromiseTest />
           </Route>
-          <Route path="/suspense">
-            <AppSuspense />
+          <Route path="/loadable">
+            <Loadable />
           </Route>
         </Switch>
       </div>

@@ -178,17 +178,23 @@ class BuggyCounter extends React.Component {
     console.log('render')
     if (this.state.counter === 5) {
       // Simulate a JS error
+      //TODO by NhatPA: Throw thì Suspense sẽ khiến cho các con của nó bị render lại liên tục ? Chưa rõ nguyên nhân vì sao như thế
       throw Promise.reject('I crashed!');
     }
     return <h1 onClick={this.handleClick}>{this.state.counter}</h1>;
   }
 }
 
+function Loading() {
+  console.log('render Loading');
+  return <div>Loading</div>;
+}
+
 function App2() {
   return (
     <div>
       <ErrorBoundary1>
-        <Suspense fallback={<div>Loading</div>}>
+        <Suspense fallback={<Loading />}>
           <p>These two counters are inside the same error boundary. If one crashes, the error boundary will replace both of them.</p>
           <BuggyCounter />
         </Suspense>
