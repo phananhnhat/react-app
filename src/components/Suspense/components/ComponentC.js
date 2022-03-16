@@ -1,15 +1,23 @@
 import React from 'react';
 
-export default class Component extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+// export default class Component extends React.Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//
+//   render() {
+//     return(
+//       <div>
+//         Content Component C
+//       </div>
+//     )
+//   }
+// }
 
-  render() {
-    return(
-      <div>
-        Content Component C
-      </div>
-    )
-  }
+export default () => {
+  return(
+    <div>
+      Content Component C
+    </div>
+  )
 }

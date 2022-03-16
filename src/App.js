@@ -196,6 +196,9 @@ function App() {
           <Route path="/promise">
             <PromiseTest />
           </Route>
+          <Route path="/suspense">
+            <Suspense />
+          </Route>
           <Route path="/loadable">
             <Loadable />
           </Route>

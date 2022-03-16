@@ -2,17 +2,13 @@ import React, { Suspense, useState } from 'react';
 
 import { fetchProfileData } from "./fakeApi";
 
+import {lazy} from './lazy';
+
+
 const ComponentA = React.lazy(() => import('./components/ComponentA'));
-const ComponentB = React.lazy(() => import('./components/ComponentB'));
-const ComponentC = React.lazy(() => import('./components/ComponentC'));
-
-// TODO
-// console.log(ComponentA); // => 1 Component
-// console.log(import('./components/ComponentA')); // => 1 Promise
-
-// import ComponentA from './components/ComponentA';
-// import ComponentB from './components/ComponentB';
-// import ComponentC from './components/ComponentC';
+const ComponentB = React.lazy(() => import('./components/ComponentB'), 'test');
+// TODO by NhatPA: lazy copt từ trong code React
+const ComponentC = lazy(() => import('./components/ComponentC'));
 
 // TODO by NhatPA: Cách dùng Suspense cho xứ lý fetch data
 // TODO by NhatPA: Các component con của Suspense có thể return về 1 throw (ví dụ: ProfileDetails) Lưu ý: có thể return về 1 throw chứ không phải bản thân Component đó là 1 promise
