@@ -80,6 +80,8 @@ function Topic() {
   return <h3>Requested topic ID: {topicId}</h3>;
 }
 
+const Item = ({item}) => {return <p>Render by children props: {item.text}</p>};
+
 function App() {
   return (
     <Router>
@@ -207,7 +209,5 @@ function App() {
     </Router>
   );
 }
-
-const Item = ({item}) => {return <p>Render by children props: {item.text}</p>};
 
 export default App;
