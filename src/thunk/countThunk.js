@@ -42,28 +42,13 @@ const getUserTimelineApi = (userId, userName) => {
   });
 }
 
-// Sử dụng thunk khi cần gọi api liên tiếp và làm 1 việc gì đó
-export const getProfileTest = (userId) => {
-  return async (dispatch, getState, extraArgument) => {
-    getUserProfileApi(userId)
-      .then((userProfile) => {
-        dispatch({
-          type: 'GET_USER_PROFILE_SUCCESS',
-          payload: userProfile,
-        });
-        beforeGetUserTimeline(dispatch);
-        getUserTimelineApi(userId, userProfile.useName).then((userTimeline) => {
-          dispatch({
-            type: 'GET_USER_TIMELINE_SUCCESS',
-            payload: userTimeline,
-          });
-        });
-      });
-  };
-};
+// TODO by NhatPA: Nếu ko dùng redux middleware thì sẽ phải mang hàm dispatch đi khắp mọi nơi nếu muốn dispatch action ở tại trong các funtion con đấy
+// TODO by NhatPA: Redux-thunk: Cho phép nhận action là 1 funtion, có thể dùng dispatch(thunk) để tránh phải truyền dispatch đi vào các function con.
+// TODO by NhatPA: Hoặc là trong trường hợp bắt buộc phải tách hàm để call nhiều api đồng thời thì cần tách ra các thunk khác nhau
+// TODO by NhatPA: Nhược điểm Redux-thunk: cú pháp dài dòng, callback hell khi dùng dispatch(thunk) lồng nhau, ví dụ như ví dụ 2
+// TODO by NhatPA: Redux-saga sẽ ko phải xảy ra callback hell, các funtion sẽ được tách biệt với nhau, dễ viết unit test, code sẽ được độc lập hoàn toàn
 
 // TODO: Vi du callback hell trong JS
-
 // const callApi = (data, cb) => {
 //   getProfile1(data, (data1) => {
 //     // Dosomething 1
@@ -105,6 +90,79 @@ export const getProfileTest = (userId) => {
 // TODO: Ví dụ callback hell khi dùng redux-thunk
 // Sử dụng thunk khi cần gọi api liên tiếp và làm 1 việc gì đó
 
+// TODO : Ví dụ 2
+const doSomethingThunk = () => {
+  return (dispatch) => {
+    const a = calculA(1,23,4);
+    dispatch({type: 'SET_A'});
+  };
+};
+
+const handleFetchData2Thunk = (id) => {
+  return (dispatch) => {
+    fetData2(id, (response) => {
+      dispatch({type: 'FETCH_DATA_2_SUCCESS'});
+      dispatch(doSomethingThunk());
+    })
+  };
+}
+
+const handleFetchData1Thunk = (id) => {
+  return (dispatch) => {
+    fetData1(id, (response) => {
+      dispatch({type: 'FETCH_DATA_1_SUCCESS'});
+      dispatch(handleFetchData2Thunk(response.id))
+    })
+  };
+}
+
+const handleFetchDataThunk = (id) => {
+  return (dispatch) => {
+    fetData(id, (response) => {
+      dispatch({type: 'FETCH_DATA_SUCCESS'});
+      dispatch(handleFetchDataThunk(response.id))
+    });
+  };
+}
+
+// Nếu kô tách ra các hàm riêng thì thunk sẽ như thế này => callback hell hoặc phải truyền dispatch vào các funtion con (như dưới)
+// Các callback khi dùng dispatch sẽ lặp lại liên tục
+const handleFetchDataThunk = (id) => {
+  return (dispatch) => {
+    fetData(id, (response) => {
+      dispatch((dispatch) => {
+        dispatch1({type: 'FETCH_DATA_SUCCESS'});
+        fetData1(response.id, (response2) => {
+          dispatch({type: 'FETCH_DATA_1_SUCCESS'});
+          fetData2(response2.id, (respons3) => {
+            dispatch({type: 'FETCH_DATA_2_SUCCESS'});
+            const a = calculA(1,23,4);
+            dispatch({type: 'SET_A'});
+          })
+        })
+      })
+    });
+  };
+}
+// Hoặc theo cách dưới đây, chỉ dispatch 1 lần, cái này thì callback hell là do api, cái trên mới là dispatch hell do redux-thunk, nhưng mà cách này là viết tất cả vào 1 hàm nên ko tính
+const handleFetchDataThunk = (id) => {
+  return (dispatch) => {
+    fetData(id, (response) => {
+      dispatch({type: 'FETCH_DATA_SUCCESS'});
+      fetData1(id, (response) => {
+        dispatch({type: 'FETCH_DATA_1_SUCCESS'});
+        fetData2(id, (response) => {
+          dispatch({type: 'FETCH_DATA_2_SUCCESS'});
+          const a = calculA(1,23,4);
+          dispatch({type: 'SET_A'});
+        });
+      })
+    });
+  };
+}
+
+
+// TODO Ví dụ 2
 // export const getProfile = (userId) => {
 //   return async (dispatch, getState, extraArgument) => {
 //     getUserProfileApi(userId)
