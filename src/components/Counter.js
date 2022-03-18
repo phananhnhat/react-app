@@ -31,6 +31,7 @@ export function Counter({test, test1}) {
         <button
           className={styles.button}
           aria-label="Decrement value"
+          // Thunk
           // onClick={() => {
           //   dispatch((dispatch1) => {
           //     dispatch1({
