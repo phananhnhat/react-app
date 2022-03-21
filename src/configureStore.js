@@ -2,6 +2,8 @@ import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import createSagaMiddleware from "redux-saga";
 import thunk from 'redux-thunk'
 
+// import thunk from './middleware/redux-thunk'
+import {composeWithDevTools} from './devtoolsExtension';
 
 import countReducer from './reducer/countReducer'
 import todosReducer from './reducer/todosReducer'
@@ -22,14 +24,24 @@ function createReducer(asyncReducers) {
   })
 }
 
+// Redux Dev-tool config follow Redex Toolkit
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+const finalCompose = composeWithDevTools({
+  // Enable capture of stack traces for dispatched Redux actions
+  trace: !IS_PRODUCTION,
+})
+
+
 const sagaMiddleware = createSagaMiddleware()
 // const middleWares = [sagaMiddleware, thunk, customMiddleware, custom1Middleware];
 const middleWares = [sagaMiddleware, thunk];
 
 export default function configureStore(preloadedState) {
+ // preloadedState không thấy dược ? ko rõ vì sao, có vẻ là ko ai dùng cách này !
   const store = createStore(
     createReducer(),
-    applyMiddleware(...middleWares),
+    preloadedState,
+    finalCompose(applyMiddleware(...middleWares)),
   );
 
   sagaMiddleware.run(countSaga);
