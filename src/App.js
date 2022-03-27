@@ -28,6 +28,7 @@ import TestHook from "./components/TestHook";
 import PromiseTest from "./components/PromiseTest";
 import Suspense from "./components/Suspense";
 import Loadable from "./components/Loadable";
+import AppTestRefAndForwardRef from "./components/AppTestRefAndForwardRef";
 
 
 function About() {
@@ -140,6 +141,9 @@ function App() {
             <li>
               <Link to="/loadable">App use Loadable Library</Link>
             </li>
+            <li>
+              <Link to="/ref-and-forward-ref">App test ref and React.forwardRef</Link>
+            </li>
           </ul>
         </nav>
 
@@ -203,6 +207,9 @@ function App() {
           </Route>
           <Route path="/loadable">
             <Loadable />
+          </Route>
+          <Route path="/ref-and-forward-ref">
+            <AppTestRefAndForwardRef />
           </Route>
         </Switch>
       </div>
