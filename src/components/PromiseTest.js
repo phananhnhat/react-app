@@ -77,6 +77,35 @@ class Download extends React.PureComponent {
     // })
   }
 
+  onClick1 = async () => {
+    const a = this.promise();
+    // console.log(a);
+    await this.promise();
+    console.log(1);
+  }
+
+  promise = async () => {
+    const myPromise1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('foo1');
+      }, 1000);
+    });
+
+    const myPromise2 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('foo2');
+      }, 300);
+    });
+
+    myPromise2.then((a) => {
+      console.log(a);
+    });
+
+    return myPromise1.then((a) => {
+      console.log(a);
+    });
+  }
+
   render() {
     return (
       <div>
