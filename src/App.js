@@ -24,11 +24,13 @@ import AppTestKeyFunctionComponent from "./components/AppTestKeyFunctionComponen
 import AppTestRender from "./components/AppTestRender";
 import Download from "./components/Download";
 import AppTestRenderListSuperLong from "./components/AppTestRenderListSuperLong";
-import TestHook from "./components/TestHook";
+import ReactHook from "./components/ReactHook";
 import PromiseTest from "./components/PromiseTest";
 import Suspense from "./components/Suspense";
 import Loadable from "./components/Loadable";
 import AppTestRefAndForwardRef from "./components/AppTestRefAndForwardRef";
+import CheckBox from "./components/CheckBox";
+import FunctionalAndClassComponent from "./components/FunctionalAndClassComponent";
 
 
 function About() {
@@ -130,7 +132,7 @@ function App() {
               <Link to="/apptestlistsuperlong">Test App List Super Long</Link>
             </li>
             <li>
-              <Link to="/testhook">Test Hook</Link>
+              <Link to="/react-hook">React Hook</Link>
             </li>
             <li>
               <Link to="/promise">Test Promise</Link>
@@ -143,6 +145,12 @@ function App() {
             </li>
             <li>
               <Link to="/ref-and-forward-ref">App test ref and React.forwardRef</Link>
+            </li>
+            <li>
+              <Link to="/function-and-class-component">Functional And Class Component</Link>
+            </li>
+            <li>
+              <Link to="/checkbox">Check Box</Link>
             </li>
           </ul>
         </nav>
@@ -196,8 +204,8 @@ function App() {
           <Route path="/apptestlistsuperlong">
             <AppTestRenderListSuperLong />
           </Route>
-          <Route path="/testhook">
-            <TestHook />
+          <Route path="/react-hook">
+            <ReactHook />
           </Route>
           <Route path="/promise">
             <PromiseTest />
@@ -210,6 +218,12 @@ function App() {
           </Route>
           <Route path="/ref-and-forward-ref">
             <AppTestRefAndForwardRef />
+          </Route>
+          <Route path="/checkbox">
+            <CheckBox />
+          </Route>
+          <Route path="/function-and-class-component">
+            <FunctionalAndClassComponent />
           </Route>
         </Switch>
       </div>

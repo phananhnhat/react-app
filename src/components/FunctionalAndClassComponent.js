@@ -1,14 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import downloadFile from '../utils/download';
 
 const a = [1,2,3,4,5];
 
 const Child = () => {
 
   React.useEffect(() => {
+    console.log('useEffect');
   }, [])
+
+  React.useEffect(() => {
+    console.log('useEffect update');
+  })
 
   console.log('kk')
   return (
@@ -16,14 +18,14 @@ const Child = () => {
       {
         a.map(() => {
           console.log('child')
-          return <p></p>;
+          return <p>1</p>;
         })
       }
     </div>
   )
 }
 
-class Child1 extends React.PureComponent {
+class Child1 extends React.Component {
   constructor(props) {
     super(props);
     console.log('constructor Child')
@@ -33,13 +35,17 @@ class Child1 extends React.PureComponent {
     console.log('componentDidMount Child', )
   }
 
+  componentDidUpdate() {
+    console.log('componetDidUpdate Child', )
+  }
+
   render() {
     return (
       <div>Item
         {
           a.map(() => {
             console.log('child')
-            return <p></p>;
+            return <p>1</p>;
           })
         }
       </div>
@@ -47,7 +53,11 @@ class Child1 extends React.PureComponent {
   }
 }
 
-class Download extends React.PureComponent {
+// TODO: Functional Component và Class Component có điểm khác biệt giữa Effect và vòng đời
+//  Với Class Component thì sẽ componentDidMount của child sẽ chạy trước rồi mới tới componentDidMount của  parent
+//  Với Class Component thì useEffect của child với [] sẽ chạy sau componentDidMount của component cha.
+//  Tương tự với lúc update cũng vậy, useEffect của update sẽ chạy sau componentDidUpdate
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,9 +68,16 @@ class Download extends React.PureComponent {
   componentDidMount() {
     // downloadFile();
     console.log('componentDidMount', )
+
+    setTimeout(() => {
+      this.setState({
+        x: [6,7,8,9]
+      })
+      console.log('start Update')
+    },  2000)
   }
 
-  componetDidUpdate() {
+  componentDidUpdate() {
     console.log('componetDidUpdate', )
   }
 
@@ -70,11 +87,11 @@ class Download extends React.PureComponent {
       <div>
         {this.state.items.map((item) => {
           console.log(item)
-          return <Child1 />
+          return <Child />
         })}
       </div>
     )
   }
 }
 
-export default Download;
+export default App;
