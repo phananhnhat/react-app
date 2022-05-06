@@ -31,6 +31,7 @@ import Loadable from "./components/Loadable";
 import AppTestRefAndForwardRef from "./components/AppTestRefAndForwardRef";
 import CheckBox from "./components/CheckBox";
 import FunctionalAndClassComponent from "./components/FunctionalAndClassComponent";
+import BlockingAndInterruptible from "./components/BlockingAndInterruptible";
 
 
 function About() {
@@ -152,6 +153,9 @@ function App() {
             <li>
               <Link to="/checkbox">Check Box</Link>
             </li>
+            <li>
+              <Link to="/blocking-and-interruptible">Blocking And Interruptible</Link>
+            </li>
           </ul>
         </nav>
 
@@ -224,6 +228,9 @@ function App() {
           </Route>
           <Route path="/function-and-class-component">
             <FunctionalAndClassComponent />
+          </Route>
+          <Route path="/blocking-and-interruptible">
+            <BlockingAndInterruptible />
           </Route>
         </Switch>
       </div>

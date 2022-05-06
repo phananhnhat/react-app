@@ -43,6 +43,7 @@ class ListApp extends React.PureComponent {
     // TODO by NhatPA: Với 1 children là 1 instance của component thì React vẫn tự hiểu đấy là component cũ mà ko bị mount lại
     // TODO by NhatPA: Với 1 children là 1 array thì thứ tự component cũ React sẽ tính toán theo index nếu như trong props không có key.
     // TODO by NhatPA: Hãy thử với các cách phía dưới để rõ
+    //  Trường hợp này đúng với cả khi đi qua nhiều cấp khác nhau, nếu như thứ tự các componet vẫn đc hiểu là update
 
     // Instance
     const item2 = this.state.check ?  <Item name={'item2'} /> : null;

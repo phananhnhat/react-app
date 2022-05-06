@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState, useTransition, Suspense, useEffect } from "react";
 import styles from './Counter.module.css';
 
 const fetchAfterMillisecond = async (data, number) => {
