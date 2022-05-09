@@ -22,12 +22,27 @@ const createBoard = (rows, columns) => {
   return array;
 };
 
+const Cell = ({rowIndex, cellIndex}) => {
+  // if(rowIndex === 0 && cellIndex === 0) {
+  //   console.log('cell')
+  // }
+  return (
+    <div
+      style={{ backgroundColor: randomColor() }}
+      className="cell"
+    />
+  )
+}
+
 const drawBoard = () => {
-  console.log('drawBoard');
+  // console.log('drawBoard');
   const board = createBoard(BOARD_SIZE, BOARD_SIZE);
   // console.log(new Date().getTime());
   const a = board.map((row, rowIndex) => {
     let cellsArrJSX = row.map((cell, cellIndex) => {
+      // if(rowIndex === 0 && cellIndex === 0) {
+      //   console.log('cell1')
+      // }
       let key = rowIndex + "-" + cellIndex;
       return (
         <div
@@ -48,7 +63,7 @@ const drawBoard = () => {
 };
 
 export const Grid = ({ value }) => {
-  // console.log('Grid');
+  // console.log('Grid', value);
   return (
     <div>
       <h2 style={{ minHeight: 28 }}>{value}</h2>
