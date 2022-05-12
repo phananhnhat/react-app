@@ -31,7 +31,8 @@ import Loadable from "./components/Loadable";
 import AppTestRefAndForwardRef from "./components/AppTestRefAndForwardRef";
 import CheckBox from "./components/CheckBox";
 import FunctionalAndClassComponent from "./components/FunctionalAndClassComponent";
-import BlockingAndInterruptible from "./components/BlockingAndInterruptible";
+import UseDeferredValue from "./components/UseDeferredValue";
+import UseTransition from "./components/UseTransition";
 
 
 function About() {
@@ -154,7 +155,10 @@ function App() {
               <Link to="/checkbox">Check Box</Link>
             </li>
             <li>
-              <Link to="/blocking-and-interruptible">Blocking And Interruptible</Link>
+              <Link to="/use-deferred-value">useDeferredValue Example</Link>
+            </li>
+            <li>
+              <Link to="/use-transition">useTransition Example</Link>
             </li>
           </ul>
         </nav>
@@ -229,8 +233,11 @@ function App() {
           <Route path="/function-and-class-component">
             <FunctionalAndClassComponent />
           </Route>
-          <Route path="/blocking-and-interruptible">
-            <BlockingAndInterruptible />
+          <Route path="/use-deferred-value">
+            <UseDeferredValue />
+          </Route>
+          <Route path="/use-transition">
+            <UseTransition />
           </Route>
         </Switch>
       </div>
