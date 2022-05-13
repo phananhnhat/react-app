@@ -88,9 +88,6 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/users">Users</Link>
-            </li>
-            <li>
               <Link to="/topics">Topics</Link>
             </li>
             <li>
