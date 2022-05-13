@@ -33,15 +33,8 @@ import CheckBox from "./components/CheckBox";
 import FunctionalAndClassComponent from "./components/FunctionalAndClassComponent";
 import UseDeferredValue from "./components/UseDeferredValue";
 import UseTransition from "./components/UseTransition";
+import ReduxSelector from "./components/ReduxSelector";
 
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
 function Test() {
   return <Redirect to="/about" />;
 }
@@ -94,12 +87,6 @@ function App() {
       <div>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
             <li>
               <Link to="/users">Users</Link>
             </li>
@@ -160,18 +147,15 @@ function App() {
             <li>
               <Link to="/use-transition">useTransition Example</Link>
             </li>
+            <li>
+              <Link to="/redux-selector">Redux Selector</Link>
+            </li>
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
           <Route path="/topics">
             <Topics />
           </Route>
@@ -239,8 +223,12 @@ function App() {
           <Route path="/use-transition">
             <UseTransition />
           </Route>
+          <Route path="/redux-selector">
+            <ReduxSelector />
+          </Route>
         </Switch>
       </div>
+      <Counter test={1} />
     </Router>
   );
 }

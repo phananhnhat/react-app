@@ -77,6 +77,7 @@ export function Counter({test, test1}) {
           onClick={() => {
             dispatch({
               type: 'tang1',
+              // type: 'tang1-va-giu-nguyen',
               payload: 'test',
             });
           }}

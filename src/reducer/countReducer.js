@@ -11,6 +11,12 @@ export default function countReducer(state = initialState, action) {
         value: state.value + 1,
       }
     }
+    case 'tang1-va-giu-nguyen': {
+      return {
+        ...state,
+        value: state.value + 1,
+      }
+    }
     case 'giam1': {
       return {
         ...state,

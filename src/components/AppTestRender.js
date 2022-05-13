@@ -1,7 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import Count from './Count'
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -41,7 +38,6 @@ class App extends React.PureComponent {
         <Child obj={this.state.obj}/>
         <button onClick={this.onChange}>Click</button>
         <input value={this.state.input} onChange={this.onInput} />
-        <Count />
       </div>
     )
   }
