@@ -32,6 +32,7 @@ export default function App(props) {
   const deferredValue = useDeferredValue(value);
   // console.log('deferredValue', deferredValue, value);
 
+  // TODO: Ko dùng useMemo thì dùng React.memo với Grid thì cũng đạt hiệu quả như nhau
   const suggestions = useMemo(() => {
       console.log('memo')
       return <Grid value={deferredValue} />;
