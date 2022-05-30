@@ -24,6 +24,7 @@ const store = configureStore({
 // );
 
 // React 18
+// Phải dùng createRoot thì mới có cơ chế concurrent + batch update trong react
 ReactDOM.createRoot(
   document.getElementById('root')
 ).render(
