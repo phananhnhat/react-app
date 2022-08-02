@@ -34,6 +34,7 @@ import FunctionalAndClassComponent from "./components/FunctionalAndClassComponen
 import UseDeferredValue from "./components/UseDeferredValue";
 import UseTransition from "./components/UseTransition";
 import ReduxSelector from "./components/ReduxSelector";
+import ZustandComponent from "./components/ZustandComponent";
 
 function Test() {
   return <Redirect to="/about" />;
@@ -147,6 +148,9 @@ function App() {
             <li>
               <Link to="/redux-selector">Redux Selector</Link>
             </li>
+            <li>
+              <Link to="/zustand-example">Zustamd Example</Link>
+            </li>
           </ul>
         </nav>
 
@@ -222,6 +226,9 @@ function App() {
           </Route>
           <Route path="/redux-selector">
             <ReduxSelector />
+          </Route>
+          <Route path="/zustand-example">
+            <ZustandComponent />
           </Route>
         </Switch>
       </div>
