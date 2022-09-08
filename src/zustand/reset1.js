@@ -2,7 +2,7 @@ import actualCreate, { GetState, SetState, State, StateCreator, StoreApi, UseBou
 
 const resetters = [];
 
-export const create = (createState)=> {
+export const create = (createState) => {
   const slice = actualCreate(createState);
   const initialState = slice.getState();
 
