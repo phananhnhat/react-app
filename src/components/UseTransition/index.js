@@ -4,7 +4,7 @@ import { Grid } from "../UseDeferredValue/Grid";
 // TODO Ví dụ này thì memo vẫn chưa nhận biết rõ.
 //  Cần xem thêm: https://codesandbox.io/s/serverless-fast-isjkvt?file=/src/index.js
 //  useTransition có vẻ như là hay dùng với Suspense
-//  useTransition thì sẽ có 1 cơ chế đặc biết là component được render lại rồi nhưng cái trên dom vẫn là bản sao cũ trước đó chứ chưa phải update mới nhất
+//  useTransition thì sẽ có 1 cơ chế đặc biệt là component được render lại rồi nhưng cái trên dom vẫn là bản sao cũ trước đó chứ chưa phải update mới nhất
 
 // TODO: 12/5/2022
 //  Xem ví dụ trong file ./App.js

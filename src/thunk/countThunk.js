@@ -120,7 +120,7 @@ const handleFetchDataThunk = (id) => {
   return (dispatch) => {
     fetData(id, (response) => {
       dispatch({type: 'FETCH_DATA_SUCCESS'});
-      dispatch(handleFetchDataThunk(response.id))
+      dispatch(handleFetchData1Thunk(response.id))
     });
   };
 }
@@ -130,7 +130,7 @@ const handleFetchDataThunk = (id) => {
 const handleFetchDataThunk = (id) => {
   return (dispatch) => {
     fetData(id, (response) => {
-      dispatch((dispatch) => {
+      dispatch((dispatch1) => {
         dispatch1({type: 'FETCH_DATA_SUCCESS'});
         fetData1(response.id, (response2) => {
           dispatch({type: 'FETCH_DATA_1_SUCCESS'});

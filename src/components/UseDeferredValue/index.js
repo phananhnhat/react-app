@@ -8,6 +8,7 @@ import { Grid } from "./Grid";
 //  Mà instance thì sẽ ko khiến cho component bị render lại (quan trọng)
 //  Nên cuối cùng số lần render của Grid sẽ được loại bỏ bớt nếu ko cần thiết.
 //  Hãy để 4 ngón lên 4 phím, ấn thật nhanh, deferredValue sẽ chỉ thay đổi duy nhất 1 lần => render 1 lần mà thôi
+//  22/11/2022: useDeferredValue sẽ khiến component render 2 lần. Nguyên nhân: Phải render 2 lần vì 1 lần là deferredValue với giá trị cũ, 1 lần là deferredValue sẽ là giá trị mới => 2 lần là chuẩn
 
 // TODO Cách dùng:
 //  useDeferredValue tương tự như startTransition nhưng với một API tương tự như trình trợ giúp useDebouncedValue

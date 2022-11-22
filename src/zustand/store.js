@@ -34,6 +34,17 @@ export const useBearStore = create(
         }
       },
       version: 0,
+      // migrate: (persistedState, version) => {
+      //   if (version === 0) {
+      //     // if the stored value is in version 0, we rename the field to the new name
+      //     persistedState.newField = persistedState.oldField
+      //     delete persistedState.oldField
+      //   }
+      //
+      //   return persistedState
+      // },
+      // merge: (persistedState, currentState) =>
+      //   deepMerge(currentState, persistedState),
     }
   )
 );
