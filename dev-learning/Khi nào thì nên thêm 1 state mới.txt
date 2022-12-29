@@ -1,0 +1,7 @@
+- Chỉ lưu các data tới từ event vào state, ngoài ra đừng lưu bất cứ thứ gì khác vào state
+
+Bổ sung thêm:
+State chứa thêm các cái sau:
+	- api response
+	- async status - trạng thái của tác vụ bất đồng bộ (call api)
+	- Không phải event mà là minimum event

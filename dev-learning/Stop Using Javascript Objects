@@ -1,0 +1,22 @@
+Thay vào đó hãy dùng Map, Set để thay thế
+Tối ưu hơn so với Objectư
+
+https://www.youtube.com/watch?v=hRSwSAr-gok&ab_channel=Theo-ping%E2%80%A4gg
+
+---Note:
+*This video is wrongly misguiding developers.
+If you are building an app that doesn’t make a network call or save data, sure Map() and Set() are good alternatives. However, most real-world apps use objects {} because transforming data to Map() or Set() and then back to {} to be serialized is a waste of developer and cpu resources.
+	
+Video này đang đánh lừa các nhà phát triển một cách sai lầm.
+Nếu bạn đang xây dựng một ứng dụng không thực hiện cuộc gọi mạng hoặc không lưu dữ liệu, hãy đảm bảo Map () và Set () là những lựa chọn thay thế tốt. Tuy nhiên, hầu hết các ứng dụng trong thế giới thực đều sử dụng các đối tượng {} vì việc chuyển đổi dữ liệu thành Map () hoặc Set () và sau đó quay lại {} để được tuần tự hóa sẽ gây lãng phí tài nguyên của nhà phát triển và cpu.
+	
+	
+* Ideally, objects should be used to abstract types of data into a single form of encapsulation. It should operate similar to a struct in C.
+Maps should be used where a key needs be matched to a value.
+Arrays should be used to hold multiple instances of the same type of data.
+Classes are just a higher form of abstraction in comparison to objects and should be minimized unless practical.
+If you're not using JavaScript (or TypeScript) this way, as you SHOULD, then you might find yourself in a fucky wucky debugging situation that nobody wants to deal with.
+Edit: If you want to use objects as Maps instead of the actual Map object, that's fine imho, you should just clearly label it as behaving as a map.
+
+Cần tham khảo các nguồn để làm rõ thêm
+https://www.zhenghao.io/posts/object-vs-map

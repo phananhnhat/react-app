@@ -1,0 +1,4 @@
+1. !important > Inline Style > Id > Class, Attribute  > Tag > Số lượng của các cái phía trước > Thứ tự trong file
+2. Nếu đều có các loại như trên thì sẽ xét tới số lượng của các cái phía trên.
+3. Một điểm lưu ý cuối cùng đó là Internal CSS và External CSS cụ thể là CSS nằm trong cặp thẻ <style>.code{}</style> bên trong HTML so với <link href=”css/style.css”> đường dẫn tới file CSS trong thư mục nào đó nếu thẻ nào nằm sau thì thẻ đó có độ ưu tiên cao hơn nhé.
+4. Chú ý với các thuộc tính ví dụ color. Thì trường hợp thẻ con không định nghĩa thì mới lấy theo thẻ cha

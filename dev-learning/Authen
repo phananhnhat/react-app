@@ -1,0 +1,38 @@
+- Access token
+	+ Dùng để gọi api.
+	+ Thời gian sống ngắn, khoảng 5p - 60p
+	+ Trả về khi login thành công
+	+ Khi call api nếu access token hết hạn thì gọi api lấy access token mới (gửi lên refresh token).
+		Nếu Refresh token cũng hết hạn thì bắt đăng nhập lại
+	
+- Refresh token
+	+ Dùng để lấy Access token mới
+	+ Thời gian sống dài
+	+ Trả về khi login thành công
+	+ Khi lấy Access token mới thì đồng thời cùng trả về Refresh token mới luôn, để nếu người dùng sử dụng ứng dụng liên tục thì sẽ không bao giờ cần đăng nhập lại.
+		Nếu user không sử dụng ứng dụng sau N ngày (N ngày là thời gian sống của Refresh token) thì sẽ cần phải login lại
+
+- JWT sinh ra để xác thực người dùng chứ không phải là bảo mật. Giống như gửi xe, ai có vé thì đều có thể lấy xe ra.
+- JWT là STATELESS (ngược với STATEFUL)
+	Máy chủ xử lý các yêu cầu chỉ dựa trên thông tin được chuyển tiếp với từng yêu cầu và không dựa vào thông tin từ các yêu cầu trước đó – điều này có nghĩa là máy chủ không cần lưu giữ thông tin trạng thái giữa các yêu cầu.
+Ưu điểm của JWT:
+	Hiệu quả trong việc làm micro service, vì việc xử lý giữa các request là độc lập.
+	Ví dụ: Làm cân bằng tải, giữa 10 con server, nếu dùng cách thông thường (STATEFUL) thì giữa 10 server này phải đồng bộ dữ liệu giữa các server với nhau.
+		Bạn có 10 con server để cân bằng tải, nếu bạn dùng session thì khi người dùng đăng nhập vào server1, 9 thằng còn lại sẽ quản lý cái session đó thế nào? Đau đầu phải không?
+		Chính vì thế nó mới sinh ra cái JWT làm access token, để bạn mang đến đâu cũng xác thực được.
+		* Tuy nhiên JWT bị 1 vấn đề là nếu lộ ra thì làm thế nào để ngăn chặn không sử dụng được nữa? Khi đó có 2 giải pháp:
+		- đặt thời gian ngắn thôi, 5 phút sau không dùng được nữa. Hết hạn sử dụng refresh token để lấy access token và refresh token mới. Lưu refresh token vào db, vậy là cả AT và RT cũ đều không còn hợp lệ
+		- trong db chỉ lưu những RT mới và hợp lệ, vì vậy kẻ tấn công xài RT cũ cũng chịu chết, chả làm gì được nữa.
+		* Mục đích ra đời của RT là giảm tải cho db. Bạn tưởng tượng trong 5 phút dùng facebook có bao nhiêu request tới server? Mỗi lần như vậy lại moi db ra xác thực thì toang 😃		* thực ra thì thằng session cũng được xác định bên client nhờ cookie thôi :v
+
+- Câu hỏi:
+	- Khi lấy lại Access token thành công thì cần thực hiện lại api cũ ? Làm việc này như nào ?
+	=> Thì gọi lại thôi, trong response hoặc error có config hoặc options của api đó rồi
+	
+1. Việc dùng JWT thay cho session vì nó dễ dàng scale hơn, ngoài ra nó dễ dàng cho việc implement authen từ mobile app hay làm các chức năng SSO.
+2. Chưa thể tìm 1 giải pháp triệt để nhưng có thể hạn chế việc User bị đánh cắp token bằng cách validate token kèm theo IP phía client. Vd token này chỉ có hiệu lực vs IP của máy người dùng, nếu hacker sử dụng cùng token ở IP khác thì sẽ k có hiệu lực.
+3. Ngoài ra thì việc JWT sinh ra bản chất là stateless nên tuỳ vào bài toán nhưng hạn chế việc lưu token vào DB.
+
+Session sẽ gặp vấn đề về lưu trữ và sử dụng khi sử dụng với các kiến trúc phức tạp và mở rộng theo chiều ngang. Còn jwt thì không. Tất nhiên đều có sự đánh đổi khi jwt cần lưu thông tin người dùng ở client và có nguy cơ bị lộ, chiếm băng thông lớn với mỗi request
+	
+	

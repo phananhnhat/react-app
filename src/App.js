@@ -35,6 +35,7 @@ import UseDeferredValue from "./components/UseDeferredValue";
 import UseTransition from "./components/UseTransition";
 import ReduxSelector from "./components/ReduxSelector";
 import ZustandComponent from "./components/ZustandComponent";
+import CustomHook from "./components/CustomHook";
 
 function Test() {
   return <Redirect to="/about" />;
@@ -122,6 +123,9 @@ function App() {
               <Link to="/react-hook">React Hook</Link>
             </li>
             <li>
+              <Link to="/custom-hook">React Custom Hook</Link>
+            </li>
+            <li>
               <Link to="/promise">Test Promise</Link>
             </li>
             <li>
@@ -199,6 +203,9 @@ function App() {
           </Route>
           <Route path="/react-hook">
             <ReactHook />
+          </Route>
+          <Route path="/custom-hook">
+            <CustomHook />
           </Route>
           <Route path="/promise">
             <PromiseTest />

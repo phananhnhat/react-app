@@ -1,0 +1,19 @@
+* Đã phần sử dụng Redux như 1 bộ đệm cho backend state (tức là response của api)
+	=> Việc này thì React-Query đã làm tốt hơn
+	Chúng ta đang khiến Redux làm quá nhiều việc và sử dụng nó như một giải pháp toàn diện cho các vấn đề của chúng ta
+* Mọi người có xu hướng mang các state của Component lên redux. Điều này rất tệ khi nó làm giảm hiệu năng đồng thời khiến redux phức tạp và ảo tưởng Redux quá mức cần thiết
+	Note: Khi phần tìm nạp/lưu trữ dữ liệu trong ứng dụng của bạn được xử lý, sẽ có rất ít trạng thái chung để bạn xử lý trên giao diện người dùng
+	=> Thay vào đó hay sử dụng Context, useContext + useReducer để tạo ra các Redux của riêng bạn. Hoặc tốt hơn nữa hãy cố gắng sử dụng useState nếu có thể.
+	Chúng ta hãy nắm lấy việc tách biệt backend khỏi frontend một cách đầy đủ hơn thay vì duy trì trạng thái ở giữa không rõ ràng này
+	
+-- Các comment hay ho:
+** React-Query và context api không bao giờ có thể thay thế redux (chúng không giống nhau)
+Điều đó rất đúng - chúng không giống nhau. Nhưng đó chính xác là điểm chính của bài viết này: redux là thư viện quản lý trạng thái toàn cầu, trong khi truy vấn phản ứng (hoặc SWR) là thư viện quản lý bộ đệm. Và thực tế hiện nay là hầu hết các ứng dụng web (tôi dám nói là hơn 95%) không cần quản lý trạng thái toàn cầu ở quy mô lớn, chúng cần thư viện bộ nhớ đệm tinh vi, bởi vì "điểm duy nhất của sự thật" không ở redux state - mà là DB, đến từ api của bạn.
+** Ngoài ra còn có nhiều yêu cầu phi kỹ thuật khác để sử dụng redux mà tôi sẽ không nói đến. Ví dụ, nó làm cho việc phỏng vấn hoặc lọc dễ dàng hơn. Có redux, đặc biệt là rất nhiều redux? Bạn có thể có đủ front-end. Không Redux? Bạn có lẽ không. Nếu bạn làm việc ở một nơi mà mọi người đều có bằng tiến sĩ. còn kỹ năng thì không thành vấn đề vì ai cũng học Redux trong 4 tiếng thì có lẽ ai cũng hào hứng và sẽ sử dụng "trạng thái tập trung". Nhưng nếu không, nếu bạn làm việc ở đâu đó với phần mềm doanh nghiệp, nơi mọi người đều muốn về nhà đúng giờ, không làm việc ngoài giờ và quan trọng nhất là không dành hàng giờ đồng hồ để viết bản mẫu (hoặc giải pháp kỹ thuật để tránh bản mẫu, một doanh nghiệp đầy rủi ro), thì redux có thể là một lời nguyền.
+	* Thành thật mà nói, tôi nghĩ rằng bài đăng trên blog đó là một chút trốn tránh. Thực tế là những gì Redux làm đều tuyệt vời, nhưng nó làm tất cả theo cách phức tạp đến mức khiến 		mọi thứ trở nên khó khăn, khó đến mức có thể không xứng đáng trừ khi bạn đang giải quyết một vấn đề quan trọng.
+** Tôi đồng ý với tuyên bố của bạn về Redux. Vấn đề thành thật là cách nó được sử dụng.
+Nếu được sử dụng để chỉ lưu trữ trạng thái thực sự toàn cầu, thì tốt thôi. Tuy nhiên, tôi nghĩ rằng hầu hết thời gian, nhiều người trong chúng ta thích mặc định ném mọi thứ vào cửa hàng toàn cầu để tránh prop drilling.
+** Redux không phải là một framework hay một công nghệ. Đó là một mô hình kiến ​​trúc và là một mô hình tuyệt vời ở đó. Vì vậy, facebook bao gồm useReducer hook trong API cấp cao nhất của React.
+** Redux là mẫu kiến ​​trúc, gỡ lỗi dễ dàng hơn và phần mềm trung gian mạnh mẽ như redux-saga để quản lý trạng thái và quy trình công việc phức tạp, thực sự phức tạp.
+Nếu bạn sử dụng nó chỉ để tìm nạp dữ liệu, các biến toàn cục hoặc các sự cố khoan chống đỡ, thì bạn đang sử dụng sai công cụ.
+** Mục đích của Redux là (a) tách giao diện người dùng và logic nghiệp vụ bằng cách sử dụng ủy quyền sự kiện/hành động, (b) tập trung mã thay đổi trạng thái và (c) khuyến khích luồng dữ liệu một chiều.

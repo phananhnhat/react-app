@@ -8,6 +8,15 @@ const usePrevCount = (count) => {
   }, [count]);
 
   return prevCount.current;
+
+  // const [prevCount, setPrevCount] = useState(null);
+  // useEffect(() => {
+  //   return () => {
+  //     setPrevCount(count)
+  //   }
+  // }, [count]);
+  //
+  // return prevCount;
 }
 
 const useGetApi = (url, params) => {

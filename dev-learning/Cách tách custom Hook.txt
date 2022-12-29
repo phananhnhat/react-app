@@ -1,0 +1,40 @@
+Custom hook thực ra là tách các logic ra 1 cái funtion riêng mà thôi.
+Trong funtion sử dụng useRef, useState để điều khiển các giá trị, trạng thái của hook đó
+Ví dụ
+* PreState hook
+const usePreviosState = (value) => {
+  const prevValue = useRef(null);
+  useEffect(() => {
+    prevValue.current = value;
+  }, [count]);
+  return prevValue.current;
+}
+
+* api Hook
+
+const useGetApi = (url, params) => {
+  const [status, setStatus] = useState('loading');
+  const [response, setResponse] = useState(null);
+  const [isSuccess, setIsSuccess] = useState(null);
+  useEffect(() => {
+    axios(({
+      method: 'GET',
+      url,
+      params,
+    })).then((response) => {
+      setIsSuccess(true);
+      setResponse(response);
+    }).catch((error) => {
+      setResponse(error);
+    }).finally(() => {
+      setStatus('done');
+    });
+  }, []);
+
+  return {
+    status,
+    response,
+    isSuccess,
+  }
+}
+
