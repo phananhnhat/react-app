@@ -1,0 +1,10 @@
+*** Git rebase
+- Ý nghĩa:
+	Rebasing là quá trình di chuyển hoặc kết hợp một chuỗi các xác nhận thành một cam kết cơ sở mới
+	Rebasse là hữu ích nhất và dễ hình dung nhất trong ngữ cảnh của quy trình phân nhánh tính năng.
+- Cách sử dụng:
+	Lý do chính để rebasing là để duy trì lịch sử dự án tuyến tính.
+	Ví dụ, hãy xem xét tình huống mà nhánh master đã phát triển kể từ khi bạn bắt đầu làm việc với nhánh feature.
+	Bạn muốn nhận các bản cập nhật mới nhất cho nhánh master trong nhánh feature của mình, nhưng bạn muốn giữ lịch sử nhánh của mình trong sạch để có vẻ như bạn đang làm việc trên nhánh master mới nhất
+	Điều này mang lại lợi ích sau này của việc hợp nhất hoàn toàn nhánh feature của bạn trở lại nhánh master.
+- Các trường hợp sử dụng:

@@ -1,10 +1,10 @@
 ** Không sử dụng&& trong JSX, thay vào đó sử dụng toán từ 3 ngôi condition ? </> : null
  Nguyên nhân các trường hợp giá trị là 0 thì có thể sẽ render ra 0
- Ví dụ 
+ Ví dụ
  	const x = 0;
  	<div> {x && <span>Text</span>}</div>
  	=> Render ra: <div>0</div>
- 
+
  ** Hạn chế sử dụng useEffect tối đa.
  Nguyên nhân:
  	Hàm useEffect luôn chạy mỗi lần render,tốn chi phí
@@ -13,18 +13,19 @@
  	Với các t/h phức tạp, trong các useEffect có rất nhiều các dependences thì logic trong useEffect sẽ rất khó hiểu, người đọc rất khó để biết được kịch bản trên U/I
  Video: https://www.youtube.com/watch?v=HPoC-k7Rxwo&ab_channel=RealWorldReact
 
- 
+ https://beta.reactjs.org/learn/you-might-not-need-an-effect
+
  Cách thay thế:
  	-  Trong khi lập trình chức năng chủ yếu dựa vào độ tinh khiết, tại một số thời điểm, ở đâu đó, một cái gì đó phải thay đổi. Đó là một loại quan điểm của lập trình! Những thay đổi này — cập nhật màn hình, bắt đầu hoạt ảnh, thay đổi dữ liệu — được gọi là hiệu ứng phụ
  	- Sử dụng các event handlers. https://beta.reactjs.org/learn/responding-to-events
  	Bộ xử lý sự kiện là nơi tốt nhất cho các tác dụng phụ.
- 	Can event handlers have side effects? 
+ 	Can event handlers have side effects?
 	Absolutely! Event handlers are the best place for side effects.
 	Rất dễ theo dõi kịch bản trên UI nếu viết theo các side effects trong event.
-	
+
 	Where you can cause side effects ?
 	- https://beta.reactjs.org/learn/keeping-components-pure#where-you-_can_-cause-side-effects
-	
+
 	- Sử dụng useMemo và useCallback để thay thế
 	- sử dụng ELT thay cho ETL
 	https://thanhle.blog/blog/state-management-gon-gang

@@ -1,0 +1,4 @@
+Trong doc của React sử dụng useEffect để mô tả giống như Life Cycle của class Component.
+Tuy nhiên KHÔNG sử dụng các phương thức chuyển đổi này khi code.
+Nguyên nhân: useEffect là lập trình theo cách đồng bộ (sync) chứ không phải theo phương pháp life cycle.
+Các khái niệm imperative và declarative được áp dùng để mô tả sự khác nhau giữa 2 cái này.
