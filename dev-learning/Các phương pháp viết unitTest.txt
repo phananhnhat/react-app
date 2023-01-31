@@ -1,0 +1,33 @@
+1. Statement Coverage
+2. Decision Coverage
+3. Branch Coverage
+4. Condition Coverage
+5. Finite State Machine Coverage
+---------------------------------------------------------------------------
+1. Statement Coverage
+Bao phủ câu lệnh (Statement Coverage): Kỹ thuật này yêu cầu mọi câu lệnh phải được thực thi ít nhất 1 lần trong quá trình kiểm tra kỹ thuật phần mềm.
+Statement Coverage cung cấp các chi tiết của cả hai khối mã được thực thi và thất bại trong tổng số các khối mã.
+
+2. Decision Coverage
+Bao phủ quyết định hoặc bao phủ nhánh là một phương pháp thử nghiệm,
+nhằm mục đích đảm bảo rằng mỗi nhánh có thể có từ mỗi điểm quyết định được thực thi ít nhất một lần và do đó đảm bảo rằng tất cả mã có thể truy cập đều được thực thi.
+Nghĩa là mọi quyết định đều được thực hiện theo từng cách, đúng và sai, giúp xác thực tất cả các nhánh trong mã để đảm bảo rằng không có nhánh nào dẫn đến hành vi bất thường của ứng dụng.
+
+3. Branch Coverage
+Bao phủ chi nhánh (Branch Coverage): Kỹ thuật này kiểm tra mọi đường dẫn if-else và các vòng điều kiện khác của một ứng dụng phần mềm.
+Branch coverage có thể được tính bằng cách tìm số đường dẫn tối thiểu để đảm bảo rằng tất cả các cạnh đã được che phủ
+
+4. Condition Coverage
+Bao phủ điều kiện hay Bao phủ biểu thức là một phương pháp kiểm tra được sử dụng để kiểm tra và đánh giá các biến hoặc biểu thức con trong câu lệnh điều kiện.
+Mục tiêu của bao phủ điều kiện là kiểm tra các kết quả riêng lẻ cho từng điều kiện logic
+
+5. Finite State Machine Coverage
+Finite State Machine Coverage: Đưa ra các khái niệm về trạng thái và lịch sử hoạt động của nó.
+Bao gồm hữu hạn các trạng thái của hệ thống, lưu trữ cách hệ thống đi đến trạng thái đó như thế nào.
+Có cách xử lý dữ liệu đầu vào (input) khác nhau dựa trên trạng thái hiện tại.
+Có thể thay đổi trạng thái dựa trên input và sự thay đổi này gọi là transition.
+...
+Sử dụng dụng mã nguồn của chương trình để tìm mọi đường dẫn thực thi có thể. Path Coverage đảm bảo phạm vi của tất cả các đường dẫn từ đầu đến cuối.
+Bao phủ nhánh (Path Coverage): Bao phủ nhánh là một phương pháp kiểm tra cấu trúc liên quan đến việc sử
+
+Path Coverage: đảm bảo tất cả các đường có thể xảy ra đi từ điểm đầu đến điểm cuối được kiểm tra hết.
