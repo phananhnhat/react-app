@@ -59,7 +59,7 @@ export function Counter({test, test1}) {
           style={{
             backgroundColor: 'red',
           }}
-          class="123"
+          className="123"
           className={styles.button}
           aria-label="Decrement value"
           onClick={() => {
