@@ -43,31 +43,15 @@ function Test() {
 
 function Topics() {
   let match = useRouteMatch();
-
+alert(match.path)
   return (
     <div>
       <h2>Topics1</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
-        </li>
-      </ul>
-
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
       <Switch>
-        <Route path={`${match.path}/:topicId`}>
+        <Route path={`/topics/aaa`}>
           <Topic />
         </Route>
-        <Route path={match.path}>
+        <Route path={'/'}>
           <h3>Please select a topic.</h3>
         </Route>
       </Switch>
@@ -76,8 +60,8 @@ function Topics() {
 }
 
 function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
+  // let { topicId } = useParams();
+  return <h3>Requested topic ID: 123</h3>;
 }
 
 const Item = ({item}) => {return <p>Render by children props: {item.text}</p>};
@@ -162,7 +146,17 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/topics">
-            <Topics />
+            <div>
+              <h2>Topics1</h2>
+              <Switch>
+                <Route path={`/topics/aaa`}>
+                  <Topic />
+                </Route>
+                <Route path={'/'}>
+                  <h3>Please select a topic.</h3>
+                </Route>
+              </Switch>
+            </div>
           </Route>
           <Route path="/test">
             <Test />
@@ -239,7 +233,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <Counter test={1} />
+      {/*<Counter test={1} />*/}
     </Router>
   );
 }
