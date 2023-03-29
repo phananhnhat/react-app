@@ -36,6 +36,7 @@ import UseTransition from "./components/UseTransition";
 import ReduxSelector from "./components/ReduxSelector";
 import ZustandComponent from "./components/ZustandComponent";
 import CustomHook from "./components/CustomHook";
+import ChainDemo from "./components/ChainDemo";
 
 function Test() {
   return <Redirect to="/about" />;
@@ -139,6 +140,9 @@ function App() {
             <li>
               <Link to="/zustand-example">Zustamd Example</Link>
             </li>
+            <li>
+              <Link to="/chain-demo">Chain</Link>
+            </li>
           </ul>
         </nav>
 
@@ -230,6 +234,9 @@ function App() {
           </Route>
           <Route path="/zustand-example">
             <ZustandComponent />
+          </Route>
+          <Route path="/chain-demo">
+            <ChainDemo />
           </Route>
         </Switch>
       </div>
